@@ -1,10 +1,13 @@
+import { Outlet } from "react-router-dom"
+
+import Navbar from "../components/Navbar"
+
 function Root() {
 
   return (
     <>
-    <div className="flex justify-center">
-      <h1 className="font-bold">EdPro - Let's start building</h1>
-    </div>
+      <Navbar />
+      <Outlet />
     </>
   )
 }
