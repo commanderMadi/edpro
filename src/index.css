@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .card {
-    @apply flex flex-col items-center rounded overflow-hidden shadow-md w-72 hover:shadow-lg;
+    @apply flex flex-col items-center rounded overflow-hidden shadow-md hover:shadow-lg m-5;
 }
