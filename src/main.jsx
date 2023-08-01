@@ -5,6 +5,7 @@ import './index.css'
 
 import Root from './routes/Root'
 import Catalog from './routes/Catalog'
+import Course from './routes/Course'
 import Signin from './routes/Signin'
 import Register from './routes/Register'
 import ErrorPage from "./error-page"
@@ -17,8 +18,12 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: '/catalog',
+        path: '/courses',
         element: <Catalog />,
+      },
+      {
+        path: '/courses/:courseId',
+        element: <Course />,
       },
       {
         path: '/signin',
