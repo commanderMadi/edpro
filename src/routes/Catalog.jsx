@@ -1,3 +1,22 @@
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
+import CourseCards from '../components/CourseCards';
+
+import prevIcon from '../assets/chevron_left.svg'
+import nextIcon from '../assets/chevron_right.svg'
+
+const responsive = {
+  0: { items: 1 },
+  568: { items: 2 },
+  1024: { items: 3 },
+};
+
+const items = [
+  <CourseCards title={'Frontend Developer'}/>,
+  <CourseCards title={'Backend Developer'}/>,
+  <CourseCards title={'Mobile Developer'}/>,
+];
+
 function Catalog() {
 
   return (
@@ -7,15 +26,21 @@ function Catalog() {
         <div>Searchbar</div>
       </div>
 
-      {/* Section */}
       <div>
         <h2 className="font-bold text-accent py-5">Web Development</h2>
-        <div className="grid grid-cols-3 space-x-20 mx-20">
-          <div className="flex flex-col items-center rounded overflow-hidden shadow-md">
-            <img src='place' className="object-cover"/>
-            <div className="text-accent font-bold text-sm my-3">Front-End Developer</div>
-          </div>
-        </div>
+        <AliceCarousel 
+          mouseTracking
+          items={items}
+          infinite
+          responsive={responsive}
+          disableDotsControls
+          renderPrevButton={() => {
+            return <img src={prevIcon} alt='previous icon' className='h-1/3 absolute left-0 top-0'/>
+          }}
+          renderNextButton={() => {
+            return <img src={nextIcon} alt='previous icon' className='h-1/3 absolute right-0 top-0'/>
+          }}
+        />
       </div>
 
     </div>
