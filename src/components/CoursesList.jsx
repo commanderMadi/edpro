@@ -18,7 +18,12 @@ const responsive = {
   }
 }
 
-function CoursesList({ courses }) {
+function CoursesList({ courses, category }) {
+
+  let coursesToDisplay = []
+  courses.forEach(course => {
+    if (course.category == category) coursesToDisplay.push(course)
+  })
 
   return (
     <Carousel
@@ -28,7 +33,7 @@ function CoursesList({ courses }) {
       responsive={responsive}
       infinite={true}
     >
-      {courses.map((course) => (
+      {coursesToDisplay.map((course) => (
         <Link to={`${course.id}`} key={course.id} className="card">
           <img src={course.imgURL} className="object-cover w-full h-52"/>
           <div className="text-accent font-bold text-sm my-4">{course.title}</div>
