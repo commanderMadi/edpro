@@ -1,24 +1,26 @@
 import { useEffect, useState } from "react"
-import { projectFirestore } from "../firebase/config"
+import { db } from "../firebase/config"
+import { collection, onSnapshot } from 'firebase/firestore'
 
-export const useCollection = (collection) => {
-	const [documents, setDocuments] = useState(null)
-	const [error, setError] = useState(false)
 
-	useEffect(() => {
-		let ref = projectFirestore.collection(collection)
+export const useCollection = (c) => {
+  const [documents, setDocuments] = useState(null)
+  const [error, setError] = useState(null)
 
-		const unsub = ref.onSnapshot((snapshot) => {
-			let results = []
-			snapshot.docs.forEach(doc => {
-				results.push({ ...doc.data(), id: doc.id })
-			})
+  useEffect(() => {
+    let ref = collection(db, c)
+
+    const unsub = onSnapshot(ref, (snapshot) => {
+      let results = []
+      snapshot.docs.forEach(doc => {
+        results.push({ ...doc.data(), id: doc.id })
+      })
 
       //update state
       setDocuments(results)
       setError(null)
 
-		}, (error) => {
+    }, (error) => {
       console.log(error)
       setError('Could not fetch the data')
     })
@@ -26,7 +28,7 @@ export const useCollection = (collection) => {
     //Unsubscribe on unmount
     return () => unsub()
 
-	}, [collection])
+  }, [collection])
 
   return { documents, error }
 }
