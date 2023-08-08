@@ -5,3 +5,8 @@
 .card {
     @apply flex flex-col items-center rounded overflow-hidden shadow-md hover:shadow-lg m-5;
 }
+
+.btn {
+  @apply rounded py-2 px-3 capitalize text-lg font-semibold border-slate-300 border bg-opacity-90 cursor-pointer tracking-wider
+  hover:shadow-inner hover:bg-opacity-100;
+}
