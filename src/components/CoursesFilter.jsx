@@ -46,50 +46,70 @@ function CoursesFilter({ courses, setFiltered }) {
   }
 
   return (
-    <div>
-      <label>
-        <span>Min Students</span>
-        <input 
-          type='range'
-          min='0'
-          max={studentsMax}
-          value={filter.minStudents}
-          onChange={e => filterCourses({...filter, minStudents: e.target.value})}
-        />
-      </label>
-      <label>
-        <span>Min Rating</span>
-        <input 
-          type='range'
-          min='0'
-          max='5'
-          value={filter.minRating}
-          step='0.5'
-          onChange={e => filterCourses({...filter, minRating: e.target.value})}
-        />
-      </label>
+    <div className="flex bg-gray-50 rounded-lg p-3">
+      <div>
+        <label className="labl sldr-labl">
+          <span className="mr-2">Min Students</span>
+          <input 
+            type='range'
+            min='0'
+            max={studentsMax}
+            value={filter.minStudents}
+            onChange={e => filterCourses({...filter, minStudents: e.target.value})}
+            className="sldr"
+          />
+          <input 
+            type='text'
+            value={filter.minStudents}
+            onChange={e => filterCourses({...filter, minStudents: e.target.value})}
+            className="sldr-txt"
+            />
+        </label>
+        <label className="labl sldr-labl">
+          <span className="mr-2">Min Rating</span>
+          <input 
+            type='range'
+            min='0'
+            max='5'
+            value={filter.minRating}
+            step='0.5'
+            onChange={e => filterCourses({...filter, minRating: e.target.value})}
+            className="sldr"
+            />
+          <input 
+            type='text'
+            value={filter.minRating}
+            onChange={e => filterCourses({...filter, minRating: e.target.value})}
+            className="sldr-txt"
+            />
+        </label>
+      </div>
       <div>
         {categories.map(cat => (
-          <label key={cat}>
-            <input 
-              type='checkbox'
-              value={cat}
-              checked={filter.categories.includes(cat)}
-              onChange={selectCategories}
-            />
-            <span>{cat}</span>
-          </label>
+          <div key={cat} className="mx-4">
+            <label className="labl">
+              <input 
+                type='checkbox'
+                value={cat}
+                checked={filter.categories.includes(cat)}
+                onChange={selectCategories}
+                className="chkb mr-1"
+              />
+              <span>{cat}</span>
+            </label>
+          </div>
         ))}
       </div>
-      <label>
-        <span>Search</span>
+      <div className="mr-3">
         <input 
           type='text'
           value={filter.searchStr}
           onChange={e => filterCourses({...filter, searchStr: e.target.value})}
+          className="srch mt-3"
+          placeholder="Search"
         />
-      </label>
-      <button onClick={resetFilter}>Clear</button>
+      </div>
+      <button onClick={resetFilter} className="reset-btn center mt-3">Clear all filters</button>
     </div>
   )
 }

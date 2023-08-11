@@ -12,7 +12,7 @@ function Catalog() {
   return (
     <div className="p-8 mr-5">
 
-      <div className="flex justify-between">
+      <div className="flex justify-between mb-5">
         <h1 className="text-xl font-bold">Course Catalog</h1>
         {courses && <CoursesFilter courses={courses} setFiltered={setFiltered} />}
       </div>
