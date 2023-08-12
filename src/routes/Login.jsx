@@ -1,19 +1,19 @@
-import { useState } from 'react'
-import { useRegister } from '../hooks/useRegister'
+import { useState } from "react"
+import { useLogin } from "../hooks/useLogin"
 
-function Register() {
+function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const { error, isPending, register } = useRegister()
+  const { error, isPending, login } = useLogin()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    register(email, password)
+    login(email, password)
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Sign up</h2>
+      <h2>Login</h2>
       <label>
         <span>Email</span>
         <input
@@ -32,11 +32,11 @@ function Register() {
           value={password}
         />
       </label>
-      {!isPending && <button className='btn'>Sign up</button>}
+      {!isPending && <button className='btn'>Login</button>}
       {isPending && <button className='btn' disabled>Loading</button>}
-      {error && <div>{error}</div>}
+      {error && <div className='error'>{error}</div>}
     </form>
   )
 }
-
-export default Register
+  
+export default Login

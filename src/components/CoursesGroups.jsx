@@ -35,7 +35,7 @@ function CoursesGroups({ courses, groupBy }) {
   return (
     <div>
       {Object.keys(groups).map(g => (
-        <div key={g}>
+        <div key={g} className="mb-4">
           <h2 className="font-bold text-accent">{g}</h2>
           <Carousel
             swipeable={true}

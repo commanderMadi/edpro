@@ -6,8 +6,10 @@ import './index.css'
 import Root from './routes/Root'
 import Catalog from './routes/Catalog'
 import Course from './routes/Course'
-import Signin from './routes/Signin'
+import Login from './routes/Login'
 import Register from './routes/Register'
+import MyCourses from './routes/MyCourses'
+import Account from './routes/Account'
 import ErrorPage from "./error-page"
 
 
@@ -26,13 +28,24 @@ const router = createBrowserRouter([
         element: <Course />,
       },
       {
-        path: '/signin',
-        element: <Signin />,
+        path: '/login',
+        element: <Login />,
       },
       {
         path: '/register',
         element: <Register />,
       },
+      {
+        path: '/my-courses',
+        element: <MyCourses />
+      },
+      {
+        path: '/forums',
+      },
+      {
+        path: '/account',
+        element: <Account />
+      }
     ],
   },
 ]);
