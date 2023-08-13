@@ -1,11 +1,14 @@
 import { useState } from 'react'
+import { Navigate } from "react-router-dom"
 import { useRegister } from '../hooks/useRegister'
+import { useAuthContext } from "../hooks/useAuthContext"
 
 function Register() {
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const { error, isPending, register } = useRegister()
+  const { user } = useAuthContext()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -16,7 +19,10 @@ function Register() {
     e.preventDefault()
     e.target.value == password ? 
       e.target.setCustomValidity('') : e.target.setCustomValidity('Password do not match')
+  }
 
+  if (user) {
+    return <Navigate to='/my-courses' replace/>
   }
 
   return (

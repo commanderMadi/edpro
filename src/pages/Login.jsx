@@ -1,14 +1,21 @@
 import { useState } from "react"
+import { Navigate } from "react-router-dom"
 import { useLogin } from "../hooks/useLogin"
+import { useAuthContext } from "../hooks/useAuthContext"
 
 function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const { error, isPending, login } = useLogin()
+  const { user } = useAuthContext()
 
   const handleSubmit = (e) => {
     e.preventDefault()
     login(email, password)
+  }
+
+  if (user) {
+    return <Navigate to='/my-courses' replace/>
   }
 
   return (
