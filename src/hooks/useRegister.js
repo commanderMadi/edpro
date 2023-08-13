@@ -1,6 +1,7 @@
 import { useState } from "react"
-import { auth } from "../firebase/config"
+import { auth, db } from "../firebase/config"
 import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { doc, setDoc } from "firebase/firestore"
 import { useAuthContext } from "./useAuthContext"
 
 
@@ -9,7 +10,7 @@ export const useRegister = () => {
   const [isPending, setIsPending] = useState(false)
   const { dispatch } = useAuthContext()
 
-  const register = async (email, password) => {
+  const register = async (fullName, email, password) => {
     setError(null)
     setIsPending(null)
 
@@ -20,6 +21,9 @@ export const useRegister = () => {
       if (!res) {
         throw new Error('Could not complete registration')
       }
+
+      //create a user document
+      await setDoc(doc(db, 'users', res.user.uid), { fullName })
 
       //dispatch login action
       dispatch({ type: 'LOGIN', payload: res.user})

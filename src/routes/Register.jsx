@@ -2,40 +2,73 @@ import { useState } from 'react'
 import { useRegister } from '../hooks/useRegister'
 
 function Register() {
+  const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const { error, isPending, register } = useRegister()
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    register(email, password)
+    register(fullName, email, password)
+  }
+
+  const checkPassword = (e) => {
+    e.preventDefault()
+    e.target.value == password ? 
+      e.target.setCustomValidity('') : e.target.setCustomValidity('Password do not match')
+
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Sign up</h2>
-      <label>
-        <span>Email</span>
-        <input
-          required
-          type='email'
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-        />
-      </label>
-      <label>
-        <span>Password</span>
-        <input
-          required
-          type='password'
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
-      </label>
-      {!isPending && <button className='btn'>Sign up</button>}
-      {isPending && <button className='btn' disabled>Loading</button>}
-      {error && <div>{error}</div>}
-    </form>
+    <div className='flex flex-col justify-center items-center'>
+      <h2 className="text-xl text-accent font-medium my-12">Welcome to EdPro. Let the learning begin!</h2>
+      <form onSubmit={handleSubmit} className='bg-gray-50 p-6 pt-12'>
+        <label className='labl-txt'>
+          <span>Full Name</span>
+          <input
+            required
+            type='text'
+            onChange={(e) => setFullName(e.target.value)}
+            value={fullName}
+            className='txt-inpt'
+          />
+        </label>
+        <label className='labl-txt'>
+          <span>Email</span>
+          <input
+            required
+            type='email'
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            className='txt-inpt'
+          />
+        </label>
+        <label className='labl-txt'>
+          <span>Password</span>
+          <input
+            required
+            type='password'
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            className='txt-inpt'
+          />
+        </label>
+        <label className='labl-txt'>
+          <span>Confirm Password</span>
+          <input
+            required
+            type='password'
+            onChange={checkPassword}
+            className='txt-inpt'
+          />
+        </label>
+        <div className="flex justify-end mt-8">
+          {!isPending && <button className='btn-primary'>Sign up</button>}
+          {isPending && <button className='btn-primary' disabled>Loading</button>}
+        </div>
+        {error && <div>{error}</div>}
+      </form>
+    </div>
   )
 }
 

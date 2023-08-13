@@ -12,30 +12,36 @@ function Login() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      <label>
-        <span>Email</span>
-        <input
-          required
-          type='email'
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-        />
-      </label>
-      <label>
-        <span>Password</span>
-        <input
-          required
-          type='password'
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
-      </label>
-      {!isPending && <button className='btn'>Login</button>}
-      {isPending && <button className='btn' disabled>Loading</button>}
+    <div className="flex flex-col justify-center items-center">
+      <h2 className="text-xl text-accent font-medium my-12">Welcome back! Ready to resume your learning journey?</h2>
+      <form onSubmit={handleSubmit} className="bg-gray-50 p-6 pt-12">
+        <label className="labl-txt">
+          <span>Email</span>
+          <input
+            required
+            type='email'
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            className="txt-inpt"
+          />
+        </label>
+        <label className="labl-txt">
+          <span>Password</span>
+          <input
+            required
+            type='password'
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            className="txt-inpt"
+          />
+        </label>
+        <div className="flex justify-end mt-8">
+          {!isPending && <button className='btn-primary'>Login</button>}
+          {isPending && <button className='btn-primary' disabled>Loading</button>}
+        </div>
+      </form>
       {error && <div className='error'>{error}</div>}
-    </form>
+    </div>
   )
 }
   

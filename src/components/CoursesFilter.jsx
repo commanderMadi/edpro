@@ -48,7 +48,7 @@ function CoursesFilter({ courses, setFiltered }) {
   return (
     <div className="flex bg-gray-50 rounded-lg p-3">
       <div>
-        <label className="labl sldr-labl">
+        <label className="labl-sldr">
           <span className="mr-2">Min Students</span>
           <input 
             type='range'
@@ -65,7 +65,7 @@ function CoursesFilter({ courses, setFiltered }) {
             className="sldr-txt"
             />
         </label>
-        <label className="labl sldr-labl">
+        <label className="labl-sldr">
           <span className="mr-2">Min Rating</span>
           <input 
             type='range'
@@ -109,7 +109,7 @@ function CoursesFilter({ courses, setFiltered }) {
           placeholder="Search"
         />
       </div>
-      <button onClick={resetFilter} className="reset-btn center mt-3">Clear all filters</button>
+      <button onClick={resetFilter} className="reset-btn center mt-3">Clear</button>
     </div>
   )
 }

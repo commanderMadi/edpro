@@ -21,7 +21,7 @@ function Course() {
       <img src={course.imgURL} className="object-cover w-full h-80"/>
       <div className="p-5">
         <div className="flex">
-          <h1 className="text-2xl font-bold text-accent">{course.title}</h1>
+          <h1 className="text-2xl font-bold ">{course.title}</h1>
           <div className="px-4">
             <Rating 
               style={{ maxWidth: 180 }}
@@ -39,8 +39,8 @@ function Course() {
           <p className="text-lg">{course.description}</p>
         </div>
         <div className="flex justify-end">
-          <Link to='/signin' className="btn bg-gray-100 text-accent mr-4">Sign In To Enroll</Link>
-          <Link to='/courses' className="btn bg-red-700 text-white ">Go Back</Link>
+          <Link to='/signin' className="btn-primary mr-4">Sign In To Enroll</Link>
+          <Link to='/courses' className="btn-secondary">Go Back</Link>
         </div>
       </div>
     </div>

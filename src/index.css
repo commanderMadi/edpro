@@ -2,21 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+/* General */
 .card {
     @apply flex flex-col items-center rounded overflow-hidden shadow-md hover:shadow-lg m-5;
 }
 
 .btn {
-  @apply rounded py-2 px-3 capitalize text-lg font-semibold border-slate-300 border bg-opacity-90 cursor-pointer tracking-wider
-  hover:shadow-inner hover:bg-opacity-100;
+  @apply rounded py-1 px-3 capitalize font-semibold border-slate-300 border cursor-pointer tracking-wider
+  hover:shadow-inner;
+}
+
+.btn-primary {
+  @apply btn text-accent
+}
+
+.btn-secondary {
+  @apply btn bg-red-700 bg-opacity-90 hover:bg-opacity-100 text-white
 }
 
 .labl {
   @apply text-sm font-medium text-gray-900;
 }
 
-.sldr-labl {
-  @apply flex items-center justify-end my-1
+/* Filter */
+.labl-sldr {
+  @apply labl flex items-center justify-end my-1
 }
 
 .sldr {
@@ -32,10 +42,19 @@
 }
 
 .srch {
-  @apply block w-full text-sm font-medium text-gray-900 border border-gray-300 rounded-md bg-gray-100;
+  @apply block w-full text-sm font-medium text-gray-900 rounded-md bg-gray-100 border border-gray-300 px-1;
 }
 
 .reset-btn {
   @apply text-sm font-medium h-6 border border-gray-300 rounded-lg px-2 bg-opacity-90 bg-gray-300
   hover:shadow-inner hover:bg-opacity-100;
+}
+
+/* Register/Login form */
+.labl-txt {
+  @apply labl flex justify-end items-center py-3
+}
+
+.txt-inpt {
+  @apply w-64 text-sm font-medium text-gray-900 rounded-md bg-gray-200 p-1 mx-5;
 }
