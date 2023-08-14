@@ -1,17 +1,22 @@
 import { Link, useParams } from "react-router-dom"
-import { useDocument } from "../hooks/useDocument"
-
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
+
+import { useAuthContext } from "../hooks/useAuthContext"
+import { useDocument } from "../hooks/useDocument"
+import EnrollButton from "../components/EnrollButton"
+
 
 
 function Course() {
   const { id } = useParams()
+  const { user } = useAuthContext()
   const { document: course, error } = useDocument('courses', id)
-
+  
   if (error) {
     return <div>{error}</div>
   }
+
   if (!course) {
     return <div>Loading...</div>
   }
@@ -38,8 +43,9 @@ function Course() {
           <p className="text-2xl pb-4">What's in it for you?</p>
           <p className="text-lg">{course.description}</p>
         </div>
-        <div className="flex justify-end">
-          <Link to='/signin' className="btn-primary mr-4">Sign In To Enroll</Link>
+        <div className="flex justify-end space-x-4">
+          {user && <EnrollButton userID={user.uid} course={course} />}
+          {!user && <Link to='/login' className="btn-primary">Login to Enroll</Link>}
           <Link to='/courses' className="btn-secondary">Go Back</Link>
         </div>
       </div>
