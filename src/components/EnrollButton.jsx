@@ -6,15 +6,13 @@ function EnrollButton({ userID, course }) {
   const { enroll } = useEnroll()
 
   const isEnrolled = () => {
-    return user && user.courses.inProgress.includes(course.id) ? true : false
+    return user && user.courses.enrolled.includes(course.id) ? true : false
   }
 
   const handleEnroll = (e) => {
     e.preventDefault()
     enroll(user, course)
   }
-
-  console.log(isEnrolled())
 
   return (
   <>

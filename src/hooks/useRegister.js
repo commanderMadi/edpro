@@ -23,7 +23,8 @@ export const useRegister = () => {
       }
 
       //create a user document
-      await setDoc(doc(db, 'users', res.user.uid), { fullName })
+      const courses = {enrolled: [], completed: []}
+      await setDoc(doc(db, 'users', res.user.uid), { fullName, courses }, )
 
       //dispatch login action
       dispatch({ type: 'LOGIN', payload: res.user})
