@@ -6,7 +6,8 @@ import {
 } from 'react-router-dom'
 import { useAuthContext } from './hooks/useAuthContext'
 
-import RootLayout from './layouts/RootLayout'
+import Root from './layouts/Root'
+import MyCourses from './layouts/MyCourses'
 
 import Home from './pages/Home'
 import Catalog from './pages/Catalog'
@@ -14,14 +15,15 @@ import Error from './pages/Error'
 import Course from './pages/Course'
 import Login from './pages/Login'
 import Register from './pages/Register'
-import MyCourses from './pages/MyCourses'
 import Account from './pages/Account'
+import CoursesEnrolled from './pages/CoursesEnrolled'
+import CoursesCompleted from './pages/CoursesCompleted'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route 
       path='/'
-      element={<RootLayout />}
+      element={<Root />}
       errorElement={<Error />}
     >
       <Route 
@@ -47,7 +49,16 @@ const router = createBrowserRouter(
       <Route 
         path='my-courses'
         element={<MyCourses />}
-      />
+      >
+        <Route
+          path='enrolled'
+          element={<CoursesEnrolled />}
+        />
+        <Route
+          path='completed'
+          element={<CoursesCompleted />}
+        />
+      </ Route>
       <Route
         path='account'
         element={<Account />}

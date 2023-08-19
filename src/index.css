@@ -24,6 +24,15 @@
   @apply text-sm font-medium text-gray-900
 }
 
+.page {
+  @apply p-8
+}
+
+.h1 {
+  @apply text-xl font-bold mb-5
+}
+
+
 /* Navbar */
 .active {
   @apply font-bold
@@ -62,4 +71,9 @@
 
 .txt-inpt {
   @apply w-64 text-sm font-medium text-gray-900 rounded-md bg-gray-200 p-1 mx-5
+}
+
+/* My courses */
+.tab {
+  @apply px-5 text-lg text-accent rounded-md hover:bg-gray-100
 }

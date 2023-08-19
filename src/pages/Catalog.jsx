@@ -10,10 +10,10 @@ function Catalog() {
   const [filtered, setFiltered] = useState(null)
 
   return (
-    <div className="p-8 mr-5">
+    <div className="page">
 
-      <div className="flex justify-between mb-5">
-        <h1 className="text-xl font-bold">Course Catalog</h1>
+      <div className="flex justify-between">
+        <h1 className="h1">Course Catalog</h1>
         {courses && <CoursesFilter courses={courses} setFiltered={setFiltered} />}
       </div>
 
