@@ -2,12 +2,26 @@ import { useState } from 'react'
 import { useCollection } from '../hooks/useCollection'
 
 import CoursesFilter from '../components/CoursesFilter'
-import CoursesGroups from '../components/CoursesGroups'
 import CourseCard from '../components/CourseCard'
+import CoursesCarousel from '../components/CoursesCarousel'
 
 function Catalog() {
   const { documents:courses, error } = useCollection('courses')
   const [filtered, setFiltered] = useState(null)
+  
+  //Group the courses by categories
+  let categories = {}
+  if (courses) {
+    courses.forEach(c => {
+      const cat = c['category']
+  
+      //add a key if the group does not exist
+      !(cat in categories) && (categories[cat] = [])
+  
+      //add the course to the relevant group
+      categories[cat].push(c)
+    });
+  }
 
   return (
     <div className="page">
@@ -17,7 +31,12 @@ function Catalog() {
         {courses && <CoursesFilter courses={courses} setFiltered={setFiltered} />}
       </div>
 
-      {courses && !filtered && <CoursesGroups courses={courses} groupBy={'category'} />}
+      {courses && !filtered && Object.keys(categories).map(cat => (
+        <div key={cat} className="mb-4">
+          <h2 className="font-bold text-accent">{cat}</h2>
+          <CoursesCarousel courses={categories[cat]}/>
+        </div>
+      ))}
 
       {filtered && filtered.length != 0 &&
         <div className='grid grid-flow-row grid-cols-3 auto-rows-max'>
