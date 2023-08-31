@@ -22,7 +22,7 @@ function Register() {
   }
 
   if (user) {
-    return <Navigate to='/my-courses' replace/>
+    return <Navigate to='/my-courses/enrolled' replace/>
   }
 
   return (

@@ -46,7 +46,7 @@ function Course() {
         <div className="flex justify-end space-x-4">
           {user && <EnrollButton userID={user.uid} course={course} />}
           {!user && <Link to='/login' className="btn-primary">Login to Enroll</Link>}
-          <Link to='/courses' className="btn-secondary">Go Back</Link>
+          <Link to='/' className="btn-secondary">Go Back</Link>
         </div>
       </div>
     </div>
