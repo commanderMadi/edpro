@@ -1,7 +1,14 @@
 import { NavLink } from "react-router-dom"
 import { Outlet } from "react-router-dom"
 
+import { useAuthContext } from "../hooks/useAuthContext"
+import { useDocument } from "../hooks/useDocument"
+import { useCollection } from "../hooks/useCollection"
+
 function MyCourses() {
+  const { user } = useAuthContext()
+  const { document: userDoc, userDocError } = useDocument('users', user.uid)
+  const { documents: courses, CoursesError } = useCollection('courses')
 
   return (
     <div className="page">
@@ -10,7 +17,8 @@ function MyCourses() {
         <NavLink to='enrolled' className="tab">Enrolled</NavLink>
         <NavLink to='completed' className="tab">Completed</NavLink>
       </div>
-      <Outlet />
+        {(userDoc && courses) && <Outlet context={{userDoc, courses}}/>}
+        {(userDocError || CoursesError) && <div>Something went wrong...</div>}
     </div>
   )
 }

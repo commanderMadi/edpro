@@ -6,7 +6,8 @@ function EnrollButton({ userID, course }) {
   const { enroll } = useEnroll()
 
   const isEnrolled = () => {
-    return user && user.courses.enrolled.includes(course.id) ? true : false
+    const enrolledIds = user.courses.map(e => e.id)
+    return enrolledIds.includes(course.id)
   }
 
   const handleEnroll = (e) => {
@@ -16,7 +17,7 @@ function EnrollButton({ userID, course }) {
 
   return (
   <>
-    {!isEnrolled() && 
+    {user && !isEnrolled() && 
       <button
         className="btn-primary"
         onClick={handleEnroll}
@@ -24,7 +25,7 @@ function EnrollButton({ userID, course }) {
         Enroll
       </button>
     }
-    {isEnrolled() && 
+    {user && isEnrolled() && 
       <button
         className="btn-primary"
         disabled

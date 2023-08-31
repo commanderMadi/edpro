@@ -13,7 +13,11 @@ export const useEnroll = () => {
     try {
       //enroll user in choosen course
       await updateDoc(doc(db, 'users', user.id), {
-        'courses.enrolled': arrayUnion(course.id)
+        'courses': arrayUnion({
+          id: course.id,
+          progress: 0,
+          isComplete: false
+        })
       })
       setIsPending(false)
     }
