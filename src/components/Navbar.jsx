@@ -10,7 +10,7 @@ function Navbar() {
     <div className="flex justify-between px-8 py-5 bg-accent text-white text-lg">
       <NavLink to='/' className="text-2xl font-bold">EdPro</NavLink>
       <nav className="flex space-x-8 mr-5">
-        <NavLink to='courses'>Catalog</NavLink>
+        <NavLink to='/'>Catalog</NavLink>
         {!user && (
           <>
             <NavLink to='login'>Login</NavLink>

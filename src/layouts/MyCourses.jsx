@@ -1,5 +1,4 @@
-import { NavLink } from "react-router-dom"
-import { Outlet } from "react-router-dom"
+import { NavLink, Navigate, Outlet } from "react-router-dom"
 
 import { useAuthContext } from "../hooks/useAuthContext"
 import { useDocument } from "../hooks/useDocument"
@@ -7,6 +6,11 @@ import { useCollection } from "../hooks/useCollection"
 
 function MyCourses() {
   const { user } = useAuthContext()
+
+  if (!user) {
+    return <Navigate to='/' replace/>
+  }
+
   const { document: userDoc, userDocError } = useDocument('users', user.uid)
   const { documents: courses, CoursesError } = useCollection('courses')
 

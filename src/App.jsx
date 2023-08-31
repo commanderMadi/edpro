@@ -9,7 +9,6 @@ import { useAuthContext } from './hooks/useAuthContext'
 import Root from './layouts/Root'
 import MyCourses from './layouts/MyCourses'
 
-import Home from './pages/Home'
 import Catalog from './pages/Catalog'
 import Error from './pages/Error'
 import Course from './pages/Course'
@@ -28,10 +27,6 @@ const router = createBrowserRouter(
     >
       <Route 
         index
-        element={<Home />}
-      />
-      <Route 
-        path='courses' 
         element={<Catalog />}
       />
       <Route
