@@ -36,7 +36,7 @@ function Course() {
                     <p>{course.students} students enrolled</p>
                 </div>
                 <div className='py-5 mr-96'>
-                    <p className='text-2xl pb-4'>What's in it for you?</p>
+                    <p className='text-2xl pb-4'>What&lsquo;s in it for you?</p>
                     <p className='text-lg'>{course.description}</p>
                 </div>
                 <div className='flex justify-end space-x-4'>
@@ -46,7 +46,7 @@ function Course() {
                             Login to Enroll
                         </Link>
                     )}
-                    <Link to='/courses' className='btn-secondary'>
+                    <Link to='/my-courses/enrolled' className='btn-secondary'>
                         Go Back
                     </Link>
                 </div>
