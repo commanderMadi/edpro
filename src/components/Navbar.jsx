@@ -20,7 +20,6 @@ function Navbar() {
         {user && (
           <>
             <NavLink to='my-courses/enrolled'>My Courses</NavLink>
-            <NavLink to='forums'>Forums</NavLink>
             <NavLink to='account'>Account</NavLink>
             <div className="cursor-pointer" onClick={logout}>Logout</div>
           </>
