@@ -37,25 +37,25 @@ const Account = () => {
         <>
             {!users && (
                 <div>
-                    <h1>Loading.. Please wait!</h1>
+                    <h1>Loading.... Please wait!</h1>
                 </div>
             )}
 
             {users && (
                 <div>
-                    <Container className=' min-h-screen !flex !flex-wrap' maxWidth='xl'>
+                    <Container className=' min-h-screen !flex !flex-wrap' maxWidth='lg'>
                         <Box
                             className='min-h-screen !bg-indigo-900 !pt-14 '
-                            sx={{ width: '100%', height: '100%', maxWidth: 400, bgcolor: 'background.paper' }}
+                            sx={{ width: '100%', height: '100%', maxWidth: 200, bgcolor: 'background.paper' }}
                         >
                             <ListItemButton className='!bg-indigo-900 !text-white' component='a' href='#account'>
-                                <ListItemText className='hover:text-red-300 text-center' primary='Account' />
+                                <div className='text-center w-full text-md hover:text-red-300'>Account</div>
                             </ListItemButton>
                             <ListItemButton className='!bg-indigo-900  !text-white' component='a' href='#profile'>
-                                <ListItemText className='hover:text-red-300 text-center text-xl' primary='Profile' />
+                                <div className='text-center w-full text-md hover:text-red-300'>Profile</div>
                             </ListItemButton>
                             <ListItemButton className='!bg-indigo-900 !text-white' component='a' href='#contact'>
-                                <ListItemText className='hover:text-red-300 text-center text-xl' primary='Contact' />
+                                <div className='text-center w-full text-md hover:text-red-300'>Contact</div>
                             </ListItemButton>
                         </Box>
                         <Box className='!flex w-8/12 flex-col'>
