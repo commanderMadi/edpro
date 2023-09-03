@@ -1,79 +1,79 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 /* General */
 .card {
-    @apply flex flex-col items-center rounded overflow-hidden shadow-md hover:shadow-lg m-5
+    @apply flex flex-col items-center rounded overflow-hidden shadow-md hover:shadow-lg m-5;
 }
 
 .btn {
-  @apply rounded py-1 px-3 capitalize font-semibold border-slate-300 border cursor-pointer tracking-wider
+    @apply rounded py-1 px-3 capitalize font-semibold border-slate-300 border cursor-pointer tracking-wider
   hover:shadow-inner;
 }
 
 .btn-primary {
-  @apply btn text-accent
+    @apply btn text-accent;
 }
 
 .btn-secondary {
-  @apply btn bg-red-700 bg-opacity-90 hover:bg-opacity-100 text-white
+    @apply btn bg-red-700 bg-opacity-90 hover:bg-opacity-100 text-white;
 }
 
 .labl {
-  @apply text-sm font-medium text-gray-900
+    @apply text-sm font-medium text-gray-900;
 }
 
 .page {
-  @apply p-8
+    @apply p-8;
 }
 
 .h1 {
-  @apply text-xl font-bold mb-5
+    @apply text-xl font-bold mb-5;
 }
-
 
 /* Navbar */
 .active {
-  @apply font-bold
+    @apply font-bold;
 }
 
 /* Filter */
 .labl-sldr {
-  @apply labl flex items-center justify-end my-1
+    @apply labl flex items-center justify-end my-1;
 }
 
 .sldr {
-  @apply h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer
+    @apply h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer;
 }
 
 .sldr-txt {
-  @apply w-10 ml-3 text-center bg-gray-100
+    @apply w-10 ml-3 text-center bg-gray-100;
 }
 
 .chkb {
-  @apply w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500
+    @apply w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500;
 }
 
 .srch {
-  @apply block w-full text-sm font-medium text-gray-900 rounded-md bg-gray-100 border border-gray-300 px-1
+    @apply block w-full text-sm font-medium text-gray-900 rounded-md bg-gray-100 border border-gray-300 px-1;
 }
 
 .reset-btn {
-  @apply text-sm font-medium h-6 border border-gray-300 rounded-lg px-2 bg-opacity-90 bg-gray-300
+    @apply text-sm font-medium h-6 border border-gray-300 rounded-lg px-2 bg-opacity-90 bg-gray-300
   hover:shadow-inner hover:bg-opacity-100;
 }
 
 /* Register/Login form */
 .labl-txt {
-  @apply labl flex justify-end items-center py-3
+    @apply labl flex justify-end items-center py-3;
 }
 
 .txt-inpt {
-  @apply w-64 text-sm font-medium text-gray-900 rounded-md bg-gray-200 p-1 mx-5
+    @apply w-64 text-sm font-medium text-gray-900 rounded-md bg-gray-200 p-1 mx-5;
 }
 
 /* My courses */
 .tab {
-  @apply px-5 text-lg text-accent rounded-md hover:bg-gray-100
+    @apply px-5 text-lg text-accent rounded-md hover:bg-gray-100;
 }
