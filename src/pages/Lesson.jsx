@@ -9,11 +9,6 @@ function Lesson() {
     const { documents: courses } = useCollection('courses');
     const { user } = useAuthContext();
     const { document: currentUser } = useDocument('users', user.uid);
-    const [active, setActive] = useState('lesson-1');
-
-    const handleClick = () => {
-        for (let i = 0; i < 7; i++) {}
-    };
 
     useEffect(() => {
         let courseData = null;
