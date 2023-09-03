@@ -1,25 +1,28 @@
-import { useOutletContext } from "react-router-dom"
+import { useOutletContext } from 'react-router-dom';
 
-import CoursesCarousel from "../components/CoursesCarousel"
+import OwnedCourseCard from '../components/OwnedCourseCard';
 
 function CoursesEnrolled() {
-  const {userDoc: user, courses} = useOutletContext()
+    const { userDoc: user, courses } = useOutletContext();
 
-  let enrolled = []
-  courses.forEach(course => {
-    user.courses.forEach(e => {
-      if (!e.isComplete && e.id == course.id) {
-        enrolled.push({...course, progress: e.progress})
-      }
-    })
-  })
+    let enrolled = [];
+    courses.forEach((course) => {
+        user.courses.forEach(async (e) => {
+            if (!e.isComplete && e.id == course.id) {
+                enrolled.push({ ...course, progress: e.progress });
+            }
+        });
+        console.log(enrolled);
+    });
 
-  return (
-    <div>
-      {<CoursesCarousel courses={enrolled} />}
-      {enrolled.length == 0 && <div>You are not enrolled in any courses yet.</div>}
-    </div>
-  )
+    return (
+        <div>
+            {enrolled.map((enrolledCourse) => (
+                <OwnedCourseCard key={enrolledCourse.id} course={enrolledCourse} />
+            ))}
+            {enrolled.length == 0 && <div>You are not enrolled in any courses yet.</div>}
+        </div>
+    );
 }
 
-export default CoursesEnrolled
+export default CoursesEnrolled;
