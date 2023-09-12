@@ -1,8 +1,28 @@
-# React + Vite
+# EdPro
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## EdPro is an open-source web application that uses React, Tailwind, Firebase, and MUI to provide an online learning platform for students and teachers.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   Create and manage courses
+-   Add and edit course content
+-   Signup/Login system for students
+-   Student progress tracking bars
+
+## For Developers
+
+-   To get started with EdPro, you will need to:
+
+-   Install Node.js and npm.
+-   Clone the EdPro repository.
+-   Install the dependencies by running `npm install`.
+-   Create a Firebase project and configure the environment variables.
+-   Run the development server by running `npm run dev`.
+
+## Contributing
+
+-   Contributions are welcome! Please open an issue or submit a pull request if you have any ideas for improvements.
+
+## License
+
+EdPro is released under the MIT License.
