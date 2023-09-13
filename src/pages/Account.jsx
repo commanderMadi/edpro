@@ -7,7 +7,15 @@ import { getDocs } from 'firebase/firestore';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { useDocument } from '../hooks/useDocument';
 import { useCollection } from '../hooks/useCollection';
-import { Container, Button, ListItem, Box, TextField, ListItemButton, ListItemText } from '@mui/material';
+import {
+    Container,
+    Button,
+    ListItem,
+    Box,
+    TextField,
+    ListItemButton,
+    ListItemText,
+} from '@mui/material';
 import SubmitIcon from '@mui/icons-material/Save';
 import Stack from '@mui/material/Stack';
 
@@ -31,10 +39,10 @@ const Account = () => {
             }
         };
         fetchUser();
-    }, [users]);
+    });
 
     return (
-        <>
+        <div>
             {!users && (
                 <div>
                     <h1>Loading.... Please wait!</h1>
@@ -43,33 +51,93 @@ const Account = () => {
 
             {users && (
                 <div>
-                    <Container className=' min-h-screen !flex !flex-wrap' maxWidth='lg'>
+                    <Container
+                        className=' min-h-screen !flex !flex-wrap'
+                        maxWidth='lg'
+                    >
                         <Box
                             className='min-h-screen !bg-indigo-900 !pt-14 '
-                            sx={{ width: '100%', height: '100%', maxWidth: 200, bgcolor: 'background.paper' }}
+                            sx={{
+                                width: '100%',
+                                height: '100%',
+                                maxWidth: 200,
+                                bgcolor: 'background.paper',
+                            }}
                         >
-                            <ListItemButton className='!bg-indigo-900 !text-white' component='a' href='#account'>
-                                <div className='text-center w-full text-md hover:text-red-300'>Account</div>
+                            <ListItemButton
+                                className='!bg-indigo-900 !text-white'
+                                component='a'
+                                href='#account'
+                            >
+                                <div className='text-center w-full text-md hover:text-red-300'>
+                                    Account
+                                </div>
                             </ListItemButton>
-                            <ListItemButton className='!bg-indigo-900  !text-white' component='a' href='#profile'>
-                                <div className='text-center w-full text-md hover:text-red-300'>Profile</div>
+                            <ListItemButton
+                                className='!bg-indigo-900  !text-white'
+                                component='a'
+                                href='#profile'
+                            >
+                                <div className='text-center w-full text-md hover:text-red-300'>
+                                    Profile
+                                </div>
                             </ListItemButton>
-                            <ListItemButton className='!bg-indigo-900 !text-white' component='a' href='#contact'>
-                                <div className='text-center w-full text-md hover:text-red-300'>Contact</div>
+                            <ListItemButton
+                                className='!bg-indigo-900 !text-white'
+                                component='a'
+                                href='#contact'
+                            >
+                                <div className='text-center w-full text-md hover:text-red-300'>
+                                    Contact
+                                </div>
                             </ListItemButton>
                         </Box>
                         <Box className='!flex w-8/12 flex-col'>
                             <Box className='ml-4 mt-10 !flex flex-col'>
-                                <TextField className='!mx-4 !mt-4 !w-full' label='Name' value={fullName} variant='standard' />
-                                <TextField className='!mx-4 !mt-4 !w-full' label='E-mail' value={email} variant='standard' />
-                                <TextField className='!mx-4 !mt-4 !w-full' label='Phone Number' variant='standard' />
-                                <TextField className='!mx-4 !mt-4 !w-full' label='Facebook' variant='standard' />
-                                <TextField className='!mx-4 !mt-4 !w-full' label='X (Formerly Twitter)' variant='standard' />
-                                <TextField className='!mx-4 !mt-4 !w-full' label='Skype' variant='standard' />
+                                <TextField
+                                    className='!mx-4 !mt-4 !w-full'
+                                    label='Name'
+                                    value={fullName}
+                                    variant='standard'
+                                />
+                                <TextField
+                                    className='!mx-4 !mt-4 !w-full'
+                                    label='E-mail'
+                                    value={email}
+                                    variant='standard'
+                                />
+                                <TextField
+                                    className='!mx-4 !mt-4 !w-full'
+                                    label='Phone Number'
+                                    variant='standard'
+                                />
+                                <TextField
+                                    className='!mx-4 !mt-4 !w-full'
+                                    label='Facebook'
+                                    variant='standard'
+                                />
+                                <TextField
+                                    className='!mx-4 !mt-4 !w-full'
+                                    label='X (Formerly Twitter)'
+                                    variant='standard'
+                                />
+                                <TextField
+                                    className='!mx-4 !mt-4 !w-full'
+                                    label='Skype'
+                                    variant='standard'
+                                />
                             </Box>
                             <Box className='w-full '>
-                                <Stack className='w-full !flex justify-end' direction='row' spacing={2}>
-                                    <Button className='!-mr-4 !mt-12 !bg-indigo-900' variant='contained' endIcon={<SubmitIcon />}>
+                                <Stack
+                                    className='w-full !flex justify-end'
+                                    direction='row'
+                                    spacing={2}
+                                >
+                                    <Button
+                                        className='!-mr-4 !mt-12 !bg-indigo-900'
+                                        variant='contained'
+                                        endIcon={<SubmitIcon />}
+                                    >
                                         Update
                                     </Button>
                                 </Stack>
@@ -78,7 +146,7 @@ const Account = () => {
                     </Container>
                 </div>
             )}
-        </>
+        </div>
     );
 };
 export default Account;
