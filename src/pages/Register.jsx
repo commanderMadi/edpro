@@ -29,7 +29,7 @@ function Register() {
     return (
         <div className='flex flex-col justify-center items-center'>
             <h2 className='text-xl text-accent font-medium my-12'>
-                Welcome to EdPro. Let the learning begin!
+                Welcome to EdPro. Let the learning begins!
             </h2>
             <form onSubmit={handleSubmit} className='bg-accent p-6 pt-12'>
                 <label className='labl-txt'>
@@ -73,7 +73,9 @@ function Register() {
                 </label>
                 <div className='flex justify-end mt-8'>
                     {!isPending && (
-                        <button className='btn-primary !text-white'>Sign up</button>
+                        <button className='btn-primary !text-white hover:text-'>
+                            Sign up
+                        </button>
                     )}
                     {isPending && (
                         <button className='btn-primary' disabled>
